@@ -4,8 +4,7 @@
   "main": "main.js",
   "description": "基于electron & vuejs 的微信机器人",
   "scripts": {
-    "start": "electron .",
-    "compact": "node packager.js"
+    "start": "electron ."
   },
   "license": "MIT",
   "repository": "none",

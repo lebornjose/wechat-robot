@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="asserts/css/reset.css">
+    <link rel="stylesheet" href="asserts/css/loaders.min.css">
+    <link rel="stylesheet" href="http://apps.bdimg.com/libs/fontawesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="asserts/css/qrcode.css">
+</head>
+<body scoll="no">
+    <div class="container">
+        <template id="login">
+            <div class="login" v-if="!user.isLogin" transition="login">
+                <div id="loading" v-if="qrcode.data == null" transition="loading">
+                    <h1 class="main-title">loading</h1>
+                    <div class="loader-inner ball-scale">
+                        <div></div>
+                    </div>
+                </div>
+                <div id="qrcode" v-if="qrcode.data != null" transition="qrcode">
+                    <h1 class="main-title" >MicroRobot</h1>
+                    <p class="main-title">打开手机微信扫描二维码即可登陆</p>
+                    <img v-bind:src="qrcode.data">
+                    <div class="avatar" v-if="qrcode.code != 400 && user.avatar" transition="avatar">
+                        <div class="bg"></div>
+                        <img v-bind:src="user.avatar" >
+                        <h1 class="main-title">扫描成功, 请在手机上确认登陆</h1>
+                    </div>
+                    <div class="reload" v-if="qrcode.code == 400 ? true:false" transition="reload">
+                        <div class="bg"></div>
+                        <h1 @click="reload" v-if="qrcode.code == 400 ? true:false">点击重新加载二维码</h1>
+                    </div>
+                </div>
+            </div>
+        </template>
+        <template id="main">
+            <div class="main"  v-if="user.isLogin" transition="main">
+                <div class="avatar">
+                    <img v-bind:src="user.avatar" >
+                </div>
+                {{contact}}
+            </div>
+        </template>
+        <template id="setting_btn">
+            <div class="setting_btn">
+                <i class="fa fa-cog fa-2x" @click="setting_show"></i>
+            </div>
+        </template>
+        <template id="setting">
+            <div class="setting">
+                <div class="bg" v-if="show" transition="setting">
+                    <div class="box">
+                        <div class="close" @click="show = !show"><i class="fa fa-times fa-2x"></i>️</div>
+                        <ul class="bar" v-on:click.stop.prevent="toggle">
+                            <li><a href="#a">本地插件</a></li>
+                        </ul>
+                        <section id="a" style="display: block;">
+                            <table border="1">
+                                <tr>
+                                    <th>名称</th>
+                                    <th>作者</th>
+                                    <th>版本</th>
+                                    <th>描述</th>
+                                    <th>操作</th>
+                                </tr>
+                                <template v-for="plugin of plugins.all">
+                                    <tr>
+                                        <td>{{plugin.name}}</td>
+                                        <td>{{plugin.author}}</td>
+                                        <td>{{plugin.version}}</td>
+                                        <td>{{plugin.description}}</td>
+                                        <td>
+                                            <template v-if="plugins.now.enabled.indexOf(plugin.filename) !== -1">
+                                                <button v-on:click.stop.prevent="disabled(plugin.filename)">禁用</button>
+                                            </template>
+                                            <template v-else>
+                                                <button v-on:click.stop.prevent="enabled(plugin.filename)">启动</button>
+                                                <button v-on:click.stop.prevent="delete(plugin.filename)">删除</button>
+                                            </template>
+                                        </td>
+                                    </tr>
+                                </template>
+                            </table>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+    </div>
+    <script src="asserts/js/vue.min.js"></script>
+    <script src="asserts/js/wechat.js"></script>
+    <script src="asserts/js/plugin.js"></script>
+    <script src="asserts/js/message.js"></script>
+    <script src="asserts/js/init.js"></script>
+    <script src="asserts/js/vm.js"></script>
+
+</body>
+</html>
+
+
+
+
+<!--<link rel="stylesheet" href="css/debug.css">-->
+<!--<div id="debug" style="{{debug ? '' : 'display: none;'}}">-->
+<!--<p>设备ID:{{wechat.DeviceID}} <span>e+随机15位数字</span></p>-->
+<!--<p>二维码:{{wechat.QRCode ? '已获取' : '未获取'}}</p>-->
+<!--<p>二维码扫描状态:{{wechat.tip}} <span>0已扫描/1未扫描</span></p>-->
+<!--<p>二维码状态码:{{wechat.code}} <span>400失效/408等待扫描/200确认/201等待确认</span></p>-->
+<!--<p>uuid:{{wechat.QRLogin.uuid}} <span>状态码#{{wechat.QRLogin.code}}</span></p>-->
+<!--<p>用户头像:{{wechat.userAvatar ? '已获取' : '未获取'}} <span>#</span></p>-->
+<!--<p>redirect_uri: {{wechat.redirect_uri}} <span>#</span></p>-->
+<!--<br>-->
+<!--</div>-->

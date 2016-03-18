@@ -1,0 +1,16 @@
+{
+  "name": "app",
+  "version": "0.1.0",
+  "main": "main.js",
+  "description": "基于electron & vuejs 的微信机器人",
+  "scripts": {
+    "start": "electron .",
+    "compact": "node packager.js"
+  },
+  "license": "MIT",
+  "repository": "none",
+  "devDependencies": {
+    "electron-prebuilt": "^0.37.2",
+    "vue": "^1.0.18"
+  }
+}

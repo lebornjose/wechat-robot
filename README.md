@@ -1,2 +1,2 @@
-# wechat-robot
-基于electron和vuejs的微信机器人
+# qq-robot
+基于vue和electron的QQ机器人

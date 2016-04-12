@@ -16,6 +16,7 @@
     "packager": "node build/packager.js"
   },
   "dependencies": {
+    "babel-runtime": "^5.8.0",
     "jquery": "^2.2.3",
     "request": "^2.70.0",
     "tough-cookie-filestore": "0.0.1",
@@ -25,7 +26,6 @@
     "xmldom": "^0.1.22"
   },
   "devDependencies": {
-    "babel-runtime": "^5.8.0",
     "babel-core": "^6.0.0",
     "electron-prebuilt": "^0.37.5",
     "babel-loader": "^6.0.0",

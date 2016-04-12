@@ -60,7 +60,7 @@ packager({
   'platform': ['win32', 'darwin', 'mas'], // 平台 darwin即osx 还有'linux', 'mas', 'win32', 'all'
   'app-copyright': '@zaygeegee', // 应用版权信息
   'app-version': '0.1.0', // 应用版本
-  'name': 'QQRobot', // 应用名字
+  'name': 'WeChatRobot', // 应用名字
   'cache': '/Users/zaygeegee/Desktop/code/js/electron/0.37.5/', // electron 平台源码路径, 淘宝镜像 https://npm.taobao.org/mirrors/electron
   'version': '0.37.5', // electron平台版本, 需要与cache对应的一致
   'ignore': ignore, // 构建时候忽略哪些文件

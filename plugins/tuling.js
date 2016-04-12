@@ -12,6 +12,7 @@ const md5 = function (str) {
 function MyPlugin () {
   Plugin.apply(this, arguments)
   this.name = '图灵机器人'
+  this.api_key = 'a754a3a32c9ab3d7d7ec4cc2be4d228a'
 }
 
 MyPlugin.prototype = new Plugin()
@@ -31,7 +32,7 @@ MyPlugin.prototype.handle = function (msg) {
   var match = reg.exec(msg.Content)
   match && (msg.Content = match[1])
   request({
-    url: 'http://www.tuling123.com/openapi/api?key=a754a3a32c9ab3d7d7ec4cc2be4d228a&info=' + encodeURI(msg.Content) + '&userid=' + md5(msg.FromUserName)
+    url: 'http://www.tuling123.com/openapi/api?key='+self.api_key+'&info=' + encodeURI(msg.Content) + '&userid=' + md5(msg.FromUserName)
   }, function (e, r, d) {
     var res = JSON.parse(d)
     var result = res.text + '\r\n'

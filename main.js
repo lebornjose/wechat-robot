@@ -29,8 +29,9 @@ app.on('ready', function () {
     frame: false // Boolean - 指定 false 来创建一个 Frameless Window. 默认为 true.
   })
   mainWindow.loadURL('file://' + root + '/app/index.html')
-   //mainWindow.loadURL('http://localhost:8080')
+  //mainWindow.loadURL('http://localhost:8080')
   //mainWindow.webContents.openDevTools()
+
   mainWindow.on('closed', function () {
     mainWindow = null
   })

@@ -65,7 +65,7 @@ packager({
   'version': '0.37.5', // electron平台版本, 需要与cache对应的一致
   'ignore': ignore, // 构建时候忽略哪些文件
   'overwrite': true, // 是否对已存在应用覆盖
-  'asar': true // 是否用asar打包
+  'asar': false // 是否用asar打包
 }, function (error, appPath) {
   if (error) {
     console.log(error) // 打印错误

@@ -3,7 +3,7 @@
     <!--使得组件只会渲染一次, 撤销时会被缓存-->
     <router-view keep-alive :avatar.sync="avatar" :manager.sync="manager" :queue="queue"
                  :plugins="plugins"></router-view>
-    <i class="close" v-on:click="terminate">关闭</i>
+    <i class="close" v-on:click="terminate">×</i>
   </div>
 </template>
 <style>

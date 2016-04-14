@@ -217,6 +217,7 @@ QrloginManager.prototype._loginicon = function (cb, ecb) {
       })
     } else {
       console.log('重置!')
+      ecb && ecb()
       self.loginicon_times = 0
     }
   }, ecb)

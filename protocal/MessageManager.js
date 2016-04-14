@@ -141,17 +141,21 @@ MessageManager.prototype.send = function (to, content) {
   })(to, content)
 }
 
-// 获取好友列表等等...
+// 同步手机消息等等等等...
 MessageManager.prototype.init = function (cb, ecb) {
   var self = this
   console.log('开始同步状态')
   self._statusNotify(function () {
-    console.log('开始获取联系人')
-    self._getContact(function () {
-      cb()
-    }, function () {
-      console.log('friend !null!')
-    })
+    console.log('同步状态成功')
+    /*
+     console.log('开始获取联系人')
+     self._getContact(function () {
+
+     }, function () {
+     console.log('friend !null!')
+     })
+     */
+    cb()
   }, function () {
     dialog.showMessageBox({
       type: 'error',

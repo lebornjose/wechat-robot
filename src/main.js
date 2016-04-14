@@ -7,6 +7,7 @@ import Work from './components/Work'
 import Setting from './components/Setting'
 import jQuery from 'jquery'
 Vue.use(VueRouter)
+Vue.config.debug = true
 
 // 定义路由器
 var router = new VueRouter()

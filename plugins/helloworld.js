@@ -7,7 +7,8 @@ var request = require('request')
 
 function MyPlugin () {
   Plugin.apply(this, arguments)
-  this.name = 'hello world'
+  this.name = 'Demo'
+  this.description = '插件测试栗子'
 }
 
 MyPlugin.prototype = new Plugin()
@@ -23,6 +24,9 @@ MyPlugin.prototype.init = function () {
  */
 MyPlugin.prototype.handle = function (msg) {
   console.log('receive:' + msg.Content)
+  if (msg.Content === 'hello') {
+    this.send(msg.FromUserName, 'world')
+  }
 }
 
 /**
@@ -39,7 +43,7 @@ MyPlugin.prototype.check = function (msg) {
  * @param msg 消息体
  * @returns {boolean}
  */
-MyPlugin.prototype.after = function (msg) {
+MyPlugin.prototype.after = function (msg, handlereturn) {
   return true
 }
 

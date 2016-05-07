@@ -57,7 +57,7 @@ packager({
   'out': __dirname + '/packager/', // 输出到哪里
   'arch': 'all', // 系统位数 'ia32', 'x64', 'all'
   'dir': dir, // 项目目录
-  'platform': ['win32', 'darwin', 'mas'], // 平台 darwin即osx 还有'linux', 'mas', 'win32', 'all'
+  'platform': ['win32', 'darwin'], // 平台 darwin即osx 还有'linux', 'mas', 'win32', 'all'
   'app-copyright': '@zaygeegee', // 应用版权信息
   'app-version': '0.1.0', // 应用版本
   'name': 'WeChatRobot', // 应用名字

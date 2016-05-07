@@ -109,7 +109,7 @@
   }
 
   #exp_url {
-    width: 180px;
+    width: 175px;
     height: 25px;
     line-height: 27px;
     padding-left: 5px;

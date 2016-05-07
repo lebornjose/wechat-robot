@@ -21,6 +21,8 @@
     height: 300px;
     top: 50%;
     margin-top: -150px;
+    left: 50%;
+    margin-left:-150px;
   }
 
   .avatar {

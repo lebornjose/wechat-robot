@@ -22,11 +22,11 @@ fs.writeFileSync(root + '/cookie', '')
 
 app.on('ready', function () {
   mainWindow = new BrowserWindow({
-    width: 300, // Integer - 窗口宽度,单位像素. 默认是 800.
-    height: 400, // Integer - 窗口高度,单位像素. 默认是 600.
+    width: 315, // Integer - 窗口宽度,单位像素. 默认是 800.
+    height: 415, // Integer - 窗口高度,单位像素. 默认是 600.
     resizable: false, // Boolean - 是否可以改变窗口size，默认为 true.
     backgroundColor: '#FFF',
-    frame: false // Boolean - 指定 false 来创建一个 Frameless Window. 默认为 true.
+    frame: true // Boolean - 指定 false 来创建一个 Frameless Window. 默认为 true.
   })
   mainWindow.loadURL('file://' + root + '/app/index.html')
   //mainWindow.loadURL('http://localhost:8080')
@@ -34,5 +34,6 @@ app.on('ready', function () {
 
   mainWindow.on('closed', function () {
     mainWindow = null
+    app.quit()
   })
 })
